@@ -1,0 +1,123 @@
+body {
+  /* Se cambia la fuente del texto, con esta opción, sino encuentra la primer fuente tu explorador, busca la segunda en su lugar y así sitemáticamente */
+  font-family: Arial, Helvetica, sans-serif;
+  /* Se va quitar el relleno */
+  padding: 0;
+  /* Se va quitar el margen */
+  margin: 0;
+}
+
+.contenedor{
+    /* Se le da color al contenedor */
+    background-color: #0F53B3;
+    /* Se organizan los elementos de izquierda a derecha con flex */
+    display: flex;
+    /* Se le dice que ocupe el 100% de ancho de la pantalla */
+    width: 100%;
+    /* De la misma manera el alto, para que invada todo */
+    height: 100%;
+    /* Al usar flex, se puede dar el acomodo que sea, en este caso se da centrado de izquierda a derecha el contenido general: */
+    justify-content: center;
+    /* Alinea los elementos de arriba a abajo */
+    align-items: center;
+    /* Se le da una posición para que pueda abarcar toda la pantalla, se usa absoluto, ya que se acomodará segun su contenedor, que es el body, por lo tanto se adapta a todo el tamaño de la página, o en caso de evitar eso de saber quién es el contenedor, se usa fixed, que básicamente da el mismo efecto pero sin tener que conocer su contenedor, fixed busca cualquier espacio en blanco de su entorno y los elimina */
+    position: fixed;
+}
+
+.contenedor .sub-contenedor{
+    /* Se define un ancho */
+    width: 600px;
+    /* Se le da un radio curvado */
+    border-radius: 10px;
+    /* Se le da un color de fondo */
+    background-color: white;
+    /* Se le da un relleno para que los elementos se vayan más al centro */
+    padding: 10px 20px;
+    /* Se le da una sombra de 0 en X y 5 en Y, 10 de blur y en colores, se usa un RGBA ya qu son colores más suavez*/
+    box-shadow: 0px 5px 10px rgba(13, 97, 150, 0.5);
+}
+
+.contenedor .sub-contenedor .contenido{
+    /* Se le da color de fondo al contenedor para poder ver lo que se mueve o afecta*/
+    /* background-color: aqua; */
+    /* Se le da formato para que se establezcan los elementos de izquierda a derecha por bloques, primero el logo que es un div, y luego los textos que son otro div */
+    display: flex;
+    /* Se le da un brecha de separación entre los elementos o filas con divs, entre el logo y los textos */
+    gap: 10px;
+    /* Se alinean sus elementos con respecto a arriba y abajo*/
+    align-items: center;
+    /* Se le da un margen de separacióne entre los botones y los demás elementos, para eso se da separación en la parte de abajo */
+    margin-bottom: 20px;
+    /* indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible. Los elementos flexibles pueden ser estirados para utilizar el espacio disponible proporcional a su factor de crecimiento flexible o su factor de contracción flexible para evitar desbordamiento. */
+    flex: auto;
+}
+/* Se le da características al ícono */
+.contenedor .sub-contenedor .contenido .icon{
+    /* Se le da una pequeña separación de los textos con el margen */
+    margin-right: 10px;
+}
+/* Se le da características al título, que es el que contiene ambos textos */
+.contenedor .sub-contenedor .contenido .mensaje .title{
+    /* Se le da un greuso a todas las fuentes */
+    font-weight: bolder;
+}
+/* Ahora, se le dan características al contenedor de los botones */
+.contenedor .sub-contenedor .actions{
+    /* Se le da un relleno para separa los elementos */
+    padding: 10px 0px;
+    /* Se le dice que sus elementos se muevan de izq a der, es decir, se hace responsive */
+    display: flex;
+    /* Se ubica los botones al final del contenedor */
+    justify-content: end;
+    /* Se separa un poco la brecha de los elementos */
+    gap: 10px;
+}
+/* Ahora, se le dan características a los botones persé */
+.contenedor .sub-contenedor .actions button{
+    /* Se le quita el borde a los botones */
+    border: none;
+    /* Se le da relleno a los botones*/
+    padding: 15px;
+    /* Se establece un tamaño mínimo */
+    min-width: 120px;
+    /* Se le da bordes curvados a los botones */
+    border-radius: 5px;
+    /* Se le establece tipo de letra en negritas, un mayor grosor */
+    font-weight: bold;
+    /* El tamaño de la letra */
+    font-size: 15px;
+    /* Se le da que cada vez que el cursor esté en los botones aparezca un puntero */
+    cursor: pointer;
+}
+/* Se le dará estilos al botón de manera individual */
+.contenedor .sub-contenedor .actions .btn-descargar{
+    background-color: #029BE1;
+    /* Se le da color de letra */
+    color: white;
+}
+/* Se le da el comportamiento para al momento de pasar el puntero cambie de color */
+.contenedor .sub-contenedor .actions .btn-descargar:hover{
+    background-color: #0280DE;
+}
+
+.contenedor .sub-contenedor .actions .btn-volver{
+    background-color: white;
+    /* Se le da un borde ligero */
+    border: solid 1px #ccc;
+}
+/* Se le da el comportamiento para al momento de pasar el puntero cambie de color */
+.contenedor .sub-contenedor .actions .btn-volver:hover{
+    background-color: #eee;
+}
+/* Ahora se le da el conidicional para cuando la pantalla sea de cierto tamaño, más que nada para dispositivos móviles */
+@media (max-width:600px) {
+    /* Se le cmbia el tamaño del contenedor */
+    .contenedor .sub-contenedor{
+        /* Se le baja el ancho */
+        width: 80%;
+    }
+    .contenedor .sub-contenedor .actions{
+        /* Se cambia la forma de los botones de fila a columna */
+        flex-direction: column;
+    }
+}
